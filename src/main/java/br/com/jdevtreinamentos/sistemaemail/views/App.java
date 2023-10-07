@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -26,6 +27,7 @@ public class App extends Application {
 		
 		primaryStage.setTitle("App email");
 		primaryStage.setResizable(false);
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/br/com/jdevtreinamentos/sistemaemail/views/imagens/logo.png")));		
 		primaryStage.setScene(cena);
 		
 		primaryStage.show();

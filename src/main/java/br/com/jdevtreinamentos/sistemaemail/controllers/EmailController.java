@@ -3,6 +3,7 @@ package br.com.jdevtreinamentos.sistemaemail.controllers;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.controlsfx.control.Notifications;
 import org.jsoup.Jsoup;
@@ -18,6 +19,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -60,6 +63,12 @@ public class EmailController {
 	@FXML
 	private Button btnClean;
 	
+	@FXML
+	private ImageView imageAnexo;
+	
+	@FXML
+	private ImageView imageClean;
+	
 	private ListViewDestinatarios visualizadorDestinatarios;
 
 	private ListViewAnexos visualizadorAnexos;
@@ -89,6 +98,7 @@ public class EmailController {
 	private void initComponents() {
 		iniciarListViewDestinatarios();
 		iniciarListViewAnexo();
+		setIcones();
 	}
 
 	private void iniciarListViewDestinatarios() {
@@ -104,18 +114,23 @@ public class EmailController {
 			contentAnexos.setContent(visualizadorAnexos);
 		}
 	}
+	
+	private void setIcones() {
+		imageAnexo.setImage(new Image(getClass().getResourceAsStream("/br/com/jdevtreinamentos/sistemaemail/views/imagens/clip.png")));
+		imageClean.setImage(new Image(getClass().getResourceAsStream("/br/com/jdevtreinamentos/sistemaemail/views/imagens/excluir.png")));
+	}
 
 	public void enviarEmail() {
 		String assunto = campoAssunto.getText();
 		String corpo = corpoEmail.getHtmlText();
 		String destinatarios = String.join(";",
-				visualizadorDestinatarios.getItens().stream().map(i -> i.getEmail()).toList());
+				visualizadorDestinatarios.getItens().stream().map(i -> i.getEmail()).collect(Collectors.toList()));
 
 		if (camposValidos()) {
 			Email email = new Email(assunto, corpo, destinatarios);
 
 			if (visualizadorAnexos.getItens().size() > 0) {
-				List<File> anexos = visualizadorAnexos.getItens().stream().map(i -> i.getAnexo()).toList();
+				List<File> anexos = visualizadorAnexos.getItens().stream().map(i -> i.getAnexo()).collect(Collectors.toList());
 				email.getAnexos().addAll(anexos);
 			}
 
