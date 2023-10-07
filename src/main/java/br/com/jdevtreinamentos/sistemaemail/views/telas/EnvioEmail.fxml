@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1012.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.jdevtreinamentos.sistemaemail.controllers.EmailController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="126.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="594.0" minHeight="10.0" prefHeight="576.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="575.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane hgap="20.0" prefHeight="573.0" prefWidth="1012.0" style="-fx-background-color: #F4F4F4;" vgap="5.0" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="828.2" minWidth="10.0" prefWidth="828.2" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.0" minWidth="10.0" prefWidth="102.60000000000002" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="46.399967956542966" valignment="TOP" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="377.0" minHeight="10.0" prefHeight="42.39997863769531" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="398.0" minHeight="10.0" prefHeight="331.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="398.0" minHeight="4.0" prefHeight="16.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="47.0" valignment="TOP" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <padding>
+            <Insets bottom="10.0" left="30.0" right="30.0" top="30.0" />
+         </padding>
+         <children>
+            <TextField fx:id="campoAssunto" prefHeight="35.0" prefWidth="582.0" promptText="Assunto" style="-fx-background-color: #F4F4F4; -fx-border-width: 0 0 1 0; -fx-border-color: #CDCDCD;" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="5.0" />
+               </GridPane.margin></TextField>
+            <HTMLEditor fx:id="corpoEmail" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="325.0" prefWidth="952.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+            <Button fx:id="btnAddDestinatario" mnemonicParsing="false" onAction="#addDestinatario" prefHeight="35.0" prefWidth="81.0" style="-fx-background-radius: 20; -fx-background-color: #C2E7FF;" text="Adicionar" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="campoDestinatario" prefHeight="35.0" prefWidth="465.0" promptText="Destinatários" style="-fx-background-color: #F4F4F4; -fx-border-width: 0 0 1 0; -fx-border-style: solid; -fx-border-color: #CDCDCD;">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </TextField>
+            <ScrollPane fx:id="contentDestinatarios" prefWidth="962.0" style="-fx-background-color: transparent;" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="950.0" style="-fx-background-color: #F4F4F4;">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+              </content>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </ScrollPane>
+            <ScrollPane fx:id="contentAnexos" prefHeight="47.0" prefWidth="952.0" style="-fx-background-color: transparent;" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.vgrow="SOMETIMES">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="947.0" style="-fx-background-color: #F4F4F4;" />
+              </content>
+            </ScrollPane>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </GridPane>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #36373B;">
+         <children>
+            <Label text="Nova mensagem" textFill="WHITE">
+               <font>
+                  <Font name="Gadugi Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+      <GridPane prefHeight="54.0" prefWidth="1012.0" style="-fx-background-color: #E3E3E3;" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="136.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="670.0" minWidth="10.0" prefWidth="357.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="494.0" minWidth="10.0" prefWidth="436.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnEnviar" mnemonicParsing="false" onAction="#enviarEmail" prefHeight="34.0" prefWidth="91.0" style="-fx-background-radius: 8; -fx-background-color: #1B61D1;" text="Enviar" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font></Button>
+            <Button fx:id="btnSelectAnexo" mnemonicParsing="false" onAction="#addAnexo" prefHeight="35.0" prefWidth="45.0" style="-fx-background-color: #D4D4D4;" GridPane.columnIndex="1">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/clip.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="btnClean" mnemonicParsing="false" onAction="#resetDados" prefHeight="35.0" prefWidth="39.0" style="-fx-background-color: #D4D4D4;" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imagens/excluir.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
+         </padding>
+      </GridPane>
+   </children>
+</GridPane>
