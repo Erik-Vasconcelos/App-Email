@@ -11,6 +11,7 @@ OBS: Para executar este projeto ou abri-lo em uma IDE, atente-se para os seguint
 - O seu computador deve possuir Java 11 ou uma versão superior;  
 - O JRE de execução do projeto tem que ser a versão 11 ou superior;
 - O projeto utiliza o sistema de módulos do Java;
+- Ao abrir o projeto na IDE, se o 'Maven Dependencies' estiver no Classpath, mova-o para o 'Modulepath' do projeto, senão, o Java não irá encontrar as classes necessárias para a aplicação. 
 
 ## Técnicas e tecnologias utilizadas :computer:
 
